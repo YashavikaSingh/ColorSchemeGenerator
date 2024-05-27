@@ -14,6 +14,8 @@
 		21B49E752C051F410023C711 /* ColorSchemeGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B49E742C051F410023C711 /* ColorSchemeGeneratorTests.swift */; };
 		21B49E7F2C051F410023C711 /* ColorSchemeGeneratorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B49E7E2C051F410023C711 /* ColorSchemeGeneratorUITests.swift */; };
 		21B49E812C051F410023C711 /* ColorSchemeGeneratorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B49E802C051F410023C711 /* ColorSchemeGeneratorUITestsLaunchTests.swift */; };
+		21B49E8E2C0528CE0023C711 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B49E8D2C0528CE0023C711 /* ViewModel.swift */; };
+		21B49E902C0529D10023C711 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B49E8F2C0529D10023C711 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		21B49E7A2C051F410023C711 /* ColorSchemeGeneratorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorSchemeGeneratorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B49E7E2C051F410023C711 /* ColorSchemeGeneratorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemeGeneratorUITests.swift; sourceTree = "<group>"; };
 		21B49E802C051F410023C711 /* ColorSchemeGeneratorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemeGeneratorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		21B49E8D2C0528CE0023C711 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		21B49E8F2C0529D10023C711 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 			children = (
 				21B49E632C051F400023C711 /* ColorSchemeGeneratorApp.swift */,
 				21B49E652C051F400023C711 /* ContentView.swift */,
+				21B49E8D2C0528CE0023C711 /* ViewModel.swift */,
+				21B49E8F2C0529D10023C711 /* Model.swift */,
 				21B49E672C051F410023C711 /* Assets.xcassets */,
 				21B49E692C051F410023C711 /* Preview Content */,
 			);
@@ -258,7 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				21B49E662C051F400023C711 /* ContentView.swift in Sources */,
+				21B49E8E2C0528CE0023C711 /* ViewModel.swift in Sources */,
 				21B49E642C051F400023C711 /* ColorSchemeGeneratorApp.swift in Sources */,
+				21B49E902C0529D10023C711 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
