@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var array = Scheme()
+    private let pasteboard = UIPasteboard.general
     var body: some View {
         VStack {
             
@@ -19,33 +20,51 @@ struct ContentView: View {
             
             Button {
                 onTapGesture {
-                    
+//                    copyToClipboard()
                 }
             } label: {
                 Text("Generate").font(.title3)
             }
             .padding()
+            
+    
 
         }
         .padding()
     }
     
-    
-    private func box(particularColor: Color) -> some View
+
+     func box(particularColor: Color) -> some View
     {
         ZStack
         {
             RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                .foregroundStyle(particularColor)
-                .frame(width: 300, height: 80)
                 .padding(5)
+                .foregroundStyle(Color(particularColor))
             
                 .onTapGesture(perform: {
-                    //copy hex value
+                    pasteboard.string = particularColor.hex()
+                    let alertbox: some View = generateCopiedBox(color :particularColor)
                 })
+            
+            Text(particularColor.hex()).font(.footnote)
         }
+        
       
     }
+    
+    
+    func generateCopiedBox( color : Color ) -> some View{
+        ZStack{
+            Rectangle().frame(width: 50, height: 50)
+            Text("Copied color \(color) to clipboard")
+        }
+       
+        
+    }
+    
+    
+    
 }
 
 
