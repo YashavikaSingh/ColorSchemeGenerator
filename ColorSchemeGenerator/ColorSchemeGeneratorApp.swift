@@ -12,7 +12,7 @@ struct ColorSchemeGeneratorApp: App {
     private let array = Scheme()
     var body: some Scene {
         WindowGroup {
-            ContentView(array: array)
+            ContentView()
         }
     }
 }

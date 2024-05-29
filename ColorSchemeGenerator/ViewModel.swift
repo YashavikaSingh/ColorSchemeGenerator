@@ -1,15 +1,13 @@
 import Foundation
 import SwiftUI
 
-func shuffle() {
-    
-    
-}
-
-
-
-
 extension UIColor {
+    
+    static var random: UIColor {
+        return .init(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1)
+    }
+    
+    
 func hex() -> String {
     guard let components = self.cgColor.components else {
         return ""
@@ -34,6 +32,15 @@ func hex() -> String {
 }
 
 extension Color {
+    init(uiColor: UIColor) {
+        self.init(uiColor.resolvedColor(with: .current))
+    }
+    
+
+     var random: Color {
+        return .init(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1))
+    }
+    
     func hex() -> String {
         if self == .clear { return "transparent" }
         return UIColor(self).hex()
@@ -41,9 +48,15 @@ extension Color {
 }
 
 
-extension Color {
-    init(uiColor: UIColor) {
-        self.init(uiColor.resolvedColor(with: .current))
-    }
-}
 
+
+func shuffle(Array: Scheme) {
+    
+    for c in 0..<Array.colorPalette.count
+    {
+        Array.colorPalette[c] = Array.colorPalette[c].random
+        print(Array.colorPalette[c])
+    }
+    
+    
+}

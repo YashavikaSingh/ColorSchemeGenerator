@@ -5,13 +5,16 @@
 //  Created by Yashavika Singh on 27.05.24.
 //
 
-import Foundation
+import SwiftData
+
 import SwiftUI
 
-class Scheme{
+
+final class Scheme: ObservableObject {
     
-    let colorPalette = [ Color.pink, Color.yellow , Color.indigo, Color.mint, Color.orange]
-    
+    @Published var colorPalette: [Color]
+
+    init(colorPalette: [Color] = [Color.pink, Color.yellow, Color.indigo, Color.mint, Color.orange]) {
+        self.colorPalette = colorPalette
+    }
 }
-
-

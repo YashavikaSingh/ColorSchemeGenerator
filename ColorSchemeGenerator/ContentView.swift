@@ -8,69 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
-    var array = Scheme()
     private let pasteboard = UIPasteboard.general
+    @StateObject private var array = Scheme()
     var body: some View {
         VStack {
-            
             Text("Color Scheme Generator").font(.custom("Georgia", size: 40))
-           
-            ForEach(0..<5) { result in
-                box(particularColor: array.colorPalette[result])                        }
-            
-            Button {
-                onTapGesture {
-//                    copyToClipboard()
-                }
-            } label: {
-                Text("Generate").font(.title3)
+            ForEach(0..<5){ result in
+            box(particularColor: array.colorPalette[result])
+            }
+            Button (action:{
+                shuffle(Array: array)
+            } )   {
+                        Text("Generate").font(.title3)
+               
+                    }
+                .padding()
             }
             .padding()
-            
-    
-
-        }
-        .padding()
     }
     
-
-     func box(particularColor: Color) -> some View
-    {
-        ZStack
+        func box(particularColor: Color) -> some View
         {
-            RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                .padding(5)
-                .foregroundStyle(Color(particularColor))
-            
-                .onTapGesture(perform: {
-                    pasteboard.string = particularColor.hex()
-                    let alertbox: some View = generateCopiedBox(color :particularColor)
-                })
-            
-            Text(particularColor.hex()).font(.footnote)
+            ZStack
+            {
+                RoundedRectangle(cornerRadius: 25.0)
+                    .padding(5)
+                    .foregroundStyle(Color(particularColor))
+                    .onTapGesture(perform: {
+                        pasteboard.string = particularColor.hex()
+                    })
+
+                Text(particularColor.hex()).font(.footnote)
+            }
         }
-        
-      
-    }
-    
-    
-    func generateCopiedBox( color : Color ) -> some View{
-        ZStack{
-            Rectangle().frame(width: 50, height: 50)
-            Text("Copied color \(color) to clipboard")
-        }
-       
-        
-    }
-    
-    
     
 }
 
-
-
-
-
+    
 #Preview {
     ContentView()
 }
+
