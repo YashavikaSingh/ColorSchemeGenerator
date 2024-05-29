@@ -1,5 +1,5 @@
-This app was all me, no tutorial, just a little help from chatgpt.
+This app was all me, no tutorial, just a little help from chatgpt initially.
 The app generates random colors and lets you copy their hex values to clipboard.
+You can also lock in some hex values and then shuffle the unlocked colors.
 
-
-<img width="372" alt="Screenshot 2024-05-29 at 18 59 33" src="https://github.com/YashavikaSingh/ColorSchemeGenerator/assets/65505787/ec0daef6-2009-441b-9bf7-0c5cb7d01353">
+![Screenshot 2024-05-29 at 22 46 Background Removed 45](https://github.com/YashavikaSingh/ColorSchemeGenerator/assets/65505787/f950efbc-28de-48e2-b1e7-d689141fb99f)
