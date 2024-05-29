@@ -29,6 +29,8 @@ struct ContentView: View {
     
         func box(particularColor: Color) -> some View
         {
+            
+
             ZStack
             {
                 RoundedRectangle(cornerRadius: 25.0)
@@ -38,7 +40,7 @@ struct ContentView: View {
                         pasteboard.string = particularColor.hex()
                     })
 
-                Text(particularColor.hex()).font(.footnote)
+                Text(particularColor.hex()).font(.footnote).foregroundStyle(particularColor.brightness() > 0.5 ? .black : .white)
             }
         }
     

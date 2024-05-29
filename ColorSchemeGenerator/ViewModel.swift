@@ -36,6 +36,13 @@ extension Color {
         self.init(uiColor.resolvedColor(with: .current))
     }
     
+    func brightness() -> Double {
+          let components = self.cgColor?.components
+          let r = components?[0] ?? 0
+          let g = components?[1] ?? 0
+          let b = components?[2] ?? 0
+          return (0.299 * r + 0.587 * g + 0.114 * b)
+      }
 
      var random: Color {
         return .init(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1))
