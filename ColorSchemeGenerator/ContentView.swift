@@ -1,4 +1,4 @@
-//
+
 //  ContentView.swift
 //  ColorSchemeGenerator
 //
@@ -18,24 +18,38 @@ struct ContentView: View {
         VStack {
             Text("Color Scheme Generator").font(.custom("Georgia", size: 40))
             ForEach(0..<5){ result in
-            box(particularColor: array.colorPalette[result])
+                box(particularColor: array.colorPalette[result])
             }
-            Button (action:{
+            
+            HStack
+            {
+                Button (action:{
                 shuffle(Array: array)
             } )   {
-                        Text("Generate").font(.title3)
-               
-                    }
-                .padding()
+                Text("Generate").font(.title3)
+                
+            }.padding(EdgeInsets(top: 10, leading: 50, bottom: 0, trailing: 0))
+            
+                
+                Spacer()
+                Button("Save colors")
+                {
+                    
+                }.font(.title3)
+                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 50))
+
             }
-        .padding()
+            
+        }
+        
         .overlay(
             copiedNotification()
                 .opacity(showCopiedNotification ? 1 : 0)
                 .animation(.easeInOut(duration: 0.3), value: showCopiedNotification)
         )
-        
-       
+
+            
+           
            
     }
     
@@ -61,13 +75,15 @@ struct ContentView: View {
                 {
                     
                     RoundedRectangle(cornerRadius: 25.0)
-                        .padding(5)
+                        .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 5))
+                        .frame(width: 300, alignment: .leading)
+                        
                         .foregroundStyle(Color(particularColor))
                         .onTapGesture(perform: {
                             pasteboard.string = particularColor.hex()
                             lastCopiedHex = particularColor.hex()
                             showCopiedNotification = true
-                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                          showCopiedNotification = false
                           }
                         })
