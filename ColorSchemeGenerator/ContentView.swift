@@ -12,6 +12,7 @@ struct ContentView: View {
     @StateObject private var array = Scheme()
     @State private var showingAlert = false
     @State private var lastCopiedHex: String = ""
+    @State private var indicesToBeShuffled = [0, 1, 2, 3, 4]
     @State private var showCopiedNotification = false
     var body: some View {
         VStack {
@@ -54,34 +55,37 @@ struct ContentView: View {
         func box(particularColor: Color) -> some View
         {
             let textColor: Color = particularColor.brightness() > 0.5 ? .black : .white
+            let index = array.colorPalette.firstIndex(of: particularColor)
+            return HStack{
+                ZStack
+                {
+                    
+                    RoundedRectangle(cornerRadius: 25.0)
+                        .padding(5)
+                        .foregroundStyle(Color(particularColor))
+                        .onTapGesture(perform: {
+                            pasteboard.string = particularColor.hex()
+                            lastCopiedHex = particularColor.hex()
+                            showCopiedNotification = true
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                         showCopiedNotification = false
+                          }
+                        })
+                    Text(particularColor.hex()).font(.footnote).foregroundStyle(textColor)
+                }
 
-
-            return ZStack
-            {
-                RoundedRectangle(cornerRadius: 25.0)
-                    .padding(5)
-                    .foregroundStyle(Color(particularColor))
-                    .onTapGesture(perform: {
-                        pasteboard.string = particularColor.hex()
-                        lastCopiedHex = particularColor.hex()
-                        showCopiedNotification = true
-                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                     showCopiedNotification = false
-                      }
-                    })
-                  
-
-                Text(particularColor.hex()).font(.footnote).foregroundStyle(textColor)
-
-            }
-            
-            
-            .onTapGesture{
-                pasteboard.string = particularColor.hex()
-            }
+                .onTapGesture{
+                    pasteboard.string = particularColor.hex()
+                }
                 
+               
+                Image(systemName: array.lockedArray[index ?? 0] ? "lock" : "lock.open")
+                    .onTapGesture{
+                        array.lockedArray[index ?? 0].toggle()
+                    }.frame(width: 25, height: 25)
+            }
+         
         }
-    
 }
 
     

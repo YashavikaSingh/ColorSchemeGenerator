@@ -61,8 +61,11 @@ func shuffle(Array: Scheme) {
     
     for c in 0..<Array.colorPalette.count
     {
-        Array.colorPalette[c] = Array.colorPalette[c].random
-        print(Array.colorPalette[c])
+        if !Array.lockedArray[c]
+        {
+            Array.colorPalette[c] = Array.colorPalette[c].random
+            
+        }
     }
     
     
