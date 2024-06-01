@@ -1,3 +1,5 @@
+# Color Palette Generator
+
 This app was all me, no tutorial, just a little help from chatgpt along the way.
 The app generates random colors and lets you copy their hex values to clipboard.
 You can also lock in some hex values and then shuffle the unlocked colors.
