@@ -8,4 +8,5 @@ The save button saves the colors on the screen. The saved colors can be viewed o
 
 <img width="200" alt="Screenshot 2024-06-18 at 15 47 00" src="https://github.com/YashavikaSingh/ColorSchemeGenerator/assets/65505787/c3acbc36-b1cc-495c-8f9f-769ff42c7f99">
 
-<img width="195" alt="Screenshot 2024-06-18 at 15 45 24" src="https://github.com/YashavikaSingh/ColorSchemeGenerator/assets/65505787/c6ff3d04-a483-4244-ad0b-2c330ea96cc8">
+
+ <img width="185" alt="Screenshot 2024-06-18 at 15 59 25" src="https://github.com/YashavikaSingh/ColorSchemeGenerator/assets/65505787/e1a9a476-f075-4c3c-b027-4a18b9c8cf14">
