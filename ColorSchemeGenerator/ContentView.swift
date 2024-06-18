@@ -31,14 +31,14 @@ struct ContentView: View {
                     } )   {
                         Text("Generate").font(.title3)
                         
-                    }.padding(EdgeInsets(top: 10, leading: 50, bottom: 0, trailing: 0))
+                    }.padding()
                     
-                    
+                    Spacer()
                     Button(action: {
                         ColorSchemeStorage.shared.saveColorScheme(array)
                         savedColorSchemes = ColorSchemeStorage.shared.allSchemes                    }) {
                         Text("Save").font(.title3)
-                    }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 50))
+                        }.padding()
 
                     
                     Spacer()
@@ -46,7 +46,7 @@ struct ContentView: View {
                         Text("View saved colors")
                     }
                     .font(.title3)
-                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 50))
+                    .padding()
                     
                     
                 }
