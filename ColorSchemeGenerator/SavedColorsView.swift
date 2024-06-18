@@ -23,7 +23,7 @@ struct SavedColorsView: View {
                 }
                 .padding(.vertical, 8)
             }
-            .navigationTitle("Saved Color Schemes")
+            .navigationTitle("Saved Color Schemes").font(.custom("Georgia", size: 40))
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button("Delete All") {
