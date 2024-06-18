@@ -4,7 +4,7 @@ class ColorSchemeStorage {
     static let shared = ColorSchemeStorage()
     private let userDefaultsKey = "savedColorSchemes"
 
-  
+    private init() {}
 
     func saveColorScheme(_ scheme: Scheme) {
         var schemes = loadColorSchemes()
@@ -23,6 +23,10 @@ class ColorSchemeStorage {
     }
     
     var allSchemes: [Scheme] {
-           return loadColorSchemes()
-       }
+        return loadColorSchemes()
+    }
+    
+    func clearSavedColorSchemes() {
+        UserDefaults.standard.removeObject(forKey: userDefaultsKey)
+    }
 }

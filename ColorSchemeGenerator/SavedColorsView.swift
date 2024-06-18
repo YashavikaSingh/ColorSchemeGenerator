@@ -24,6 +24,15 @@ struct SavedColorsView: View {
                 .padding(.vertical, 8)
             }
             .navigationTitle("Saved Color Schemes")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button("Delete All") {
+                        // Clear all saved color schemes
+                        ColorSchemeStorage.shared.clearSavedColorSchemes()
+                        savedColorSchemes = [] // Update the binding to reflect the cleared state
+                    }
+                }
+            }
         }
     }
 }
