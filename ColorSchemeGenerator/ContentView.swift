@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     private let pasteboard = UIPasteboard.general
-    var array = Scheme()
+    @StateObject private var array = Scheme()
     @State private var showingAlert = false
     @State private var lastCopiedHex: String = ""
     @State private var indicesToBeShuffled = [0, 1, 2, 3, 4]
     @State private var showCopiedNotification = false
+    @State private var savedColorSchemes: [Scheme] = []
+
     var body: some View {
         VStack {
             NavigationStack{
@@ -32,8 +34,15 @@ struct ContentView: View {
                     }.padding(EdgeInsets(top: 10, leading: 50, bottom: 0, trailing: 0))
                     
                     
+                    Button(action: {
+                        ColorSchemeStorage.shared.saveColorScheme(array)
+                        savedColorSchemes = ColorSchemeStorage.shared.allSchemes                    }) {
+                        Text("Save").font(.title3)
+                    }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 50))
+
+                    
                     Spacer()
-                    NavigationLink(destination: SavedColorsView()) {
+                    NavigationLink(destination: SavedColorsView(savedColorSchemes: $savedColorSchemes)) {
                         Text("View saved colors")
                     }
                     .font(.title3)
@@ -49,6 +58,10 @@ struct ContentView: View {
                     .opacity(showCopiedNotification ? 1 : 0)
                     .animation(.easeInOut(duration: 0.3), value: showCopiedNotification)
             )
+            
+            .onAppear {
+                       savedColorSchemes = ColorSchemeStorage.shared.allSchemes
+                   }
             
             
         }
@@ -105,6 +118,9 @@ struct ContentView: View {
          
         }
 }
+
+
+
 
     
 #Preview {

@@ -1,19 +1,33 @@
-//
-//  SavedColorsView.swift
-//  ColorSchemeGenerator
-//
-//  Created by Yashavika Singh on 18.06.24.
-//
-
 import SwiftUI
 
 struct SavedColorsView: View {
-    @Bindable private var array = Scheme()
+    @Binding var savedColorSchemes: [Scheme]
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List(savedColorSchemes) { scheme in
+                VStack(alignment: .leading) {
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                       HStack(spacing: 0) {
+                            ForEach(scheme.colorPalette, id: \.self) { color in
+                                Rectangle()
+                                    .fill(color)
+                                    .frame(width: 40, height: 40)
+                                    
+                            }
+                        }
+                  
+                    }
+                    .frame(height: 60)
+                }
+                .padding(.vertical, 8)
+            }
+            .navigationTitle("Saved Color Schemes")
+        }
     }
 }
 
-#Preview {
-    SavedColorsView()
-}
+//#Preview {
+//    SavedColorsView(savedColorSchemes: .constant([])) // Replace with your actual savedColorSchemes binding
+//}

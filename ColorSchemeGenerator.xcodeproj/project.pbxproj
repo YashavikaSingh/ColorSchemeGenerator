@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		217F6EF82C21CC8F001D9442 /* SavedColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F6EF72C21CC8F001D9442 /* SavedColorsView.swift */; };
+		217F6EFA2C21D17B001D9442 /* ColorSchemeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F6EF92C21D17B001D9442 /* ColorSchemeStorage.swift */; };
 		21B49E642C051F400023C711 /* ColorSchemeGeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B49E632C051F400023C711 /* ColorSchemeGeneratorApp.swift */; };
 		21B49E662C051F400023C711 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B49E652C051F400023C711 /* ContentView.swift */; };
 		21B49E682C051F410023C711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B49E672C051F410023C711 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		217F6EF72C21CC8F001D9442 /* SavedColorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedColorsView.swift; sourceTree = "<group>"; };
+		217F6EF92C21D17B001D9442 /* ColorSchemeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemeStorage.swift; sourceTree = "<group>"; };
 		21B49E602C051F400023C711 /* ColorSchemeGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorSchemeGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B49E632C051F400023C711 /* ColorSchemeGeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemeGeneratorApp.swift; sourceTree = "<group>"; };
 		21B49E652C051F400023C711 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				21B49E632C051F400023C711 /* ColorSchemeGeneratorApp.swift */,
 				21B49E652C051F400023C711 /* ContentView.swift */,
 				217F6EF72C21CC8F001D9442 /* SavedColorsView.swift */,
+				217F6EF92C21D17B001D9442 /* ColorSchemeStorage.swift */,
 				21B49E8D2C0528CE0023C711 /* ViewModel.swift */,
 				21B49E8F2C0529D10023C711 /* Model.swift */,
 				21B49E672C051F410023C711 /* Assets.xcassets */,
@@ -268,6 +271,7 @@
 			files = (
 				21B49E662C051F400023C711 /* ContentView.swift in Sources */,
 				21B49E8E2C0528CE0023C711 /* ViewModel.swift in Sources */,
+				217F6EFA2C21D17B001D9442 /* ColorSchemeStorage.swift in Sources */,
 				21B49E642C051F400023C711 /* ColorSchemeGeneratorApp.swift in Sources */,
 				217F6EF82C21CC8F001D9442 /* SavedColorsView.swift in Sources */,
 				21B49E902C0529D10023C711 /* Model.swift in Sources */,
