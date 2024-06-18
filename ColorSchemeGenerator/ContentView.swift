@@ -9,47 +9,49 @@ import SwiftUI
 
 struct ContentView: View {
     private let pasteboard = UIPasteboard.general
-    @StateObject private var array = Scheme()
+    var array = Scheme()
     @State private var showingAlert = false
     @State private var lastCopiedHex: String = ""
     @State private var indicesToBeShuffled = [0, 1, 2, 3, 4]
     @State private var showCopiedNotification = false
     var body: some View {
         VStack {
-            Text("Color Scheme Generator").font(.custom("Georgia", size: 40))
-            ForEach(0..<5){ result in
-                box(particularColor: array.colorPalette[result])
-            }
-            
-            HStack
-            {
-                Button (action:{
-                shuffle(Array: array)
-            } )   {
-                Text("Generate").font(.title3)
+            NavigationStack{
+                Text("Color Scheme Generator").font(.custom("Georgia", size: 40))
+                ForEach(0..<5){ result in
+                    box(particularColor: array.colorPalette[result])
+                }
                 
-            }.padding(EdgeInsets(top: 10, leading: 50, bottom: 0, trailing: 0))
-            
-                
-                Spacer()
-                Button("Save colors")
+                HStack
                 {
+                    Button (action:{
+                        shuffle(Array: array)
+                    } )   {
+                        Text("Generate").font(.title3)
+                        
+                    }.padding(EdgeInsets(top: 10, leading: 50, bottom: 0, trailing: 0))
                     
-                }.font(.title3)
+                    
+                    Spacer()
+                    NavigationLink(destination: SavedColorsView()) {
+                        Text("View saved colors")
+                    }
+                    .font(.title3)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 50))
-
+                    
+                    
+                }
+                
             }
+            
+            .overlay(
+                copiedNotification()
+                    .opacity(showCopiedNotification ? 1 : 0)
+                    .animation(.easeInOut(duration: 0.3), value: showCopiedNotification)
+            )
+            
             
         }
-        
-        .overlay(
-            copiedNotification()
-                .opacity(showCopiedNotification ? 1 : 0)
-                .animation(.easeInOut(duration: 0.3), value: showCopiedNotification)
-        )
-
-            
-           
            
     }
     

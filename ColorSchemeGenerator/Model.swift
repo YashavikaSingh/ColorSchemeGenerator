@@ -9,11 +9,11 @@ import SwiftData
 
 import SwiftUI
 
-
-final class Scheme: ObservableObject {
+@Observable
+ class Scheme {
     
-    @Published var colorPalette: [Color]
-    @Published var lockedArray: [Bool]
+     var colorPalette: [Color]
+     var lockedArray: [Bool]
 
     init(colorPalette: [Color] = [Color.pink, Color.yellow, Color.indigo, Color.mint, Color.orange], lockedArray: [Bool] = [false, false, false, false, false]) {
         self.colorPalette = colorPalette
